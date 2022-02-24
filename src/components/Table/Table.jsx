@@ -1,12 +1,28 @@
 import React, { useEffect, useContext } from 'react';
 import MyContext from '../../context/MyContext';
+import filter from '../../helpers/filters';
 
 function Table() {
-  const { data, getAPI } = useContext(MyContext);
+  const {
+    data,
+    getAPI,
+    filterByName: { name },
+    setPlanetsFiltered,
+    planetsFiltered,
+    loading,
+  } = useContext(MyContext);
 
   useEffect(() => {
     getAPI();
   }, []);
+
+  useEffect(() => {
+    setPlanetsFiltered(filter(name, data));
+  }, [loading, name]);
+
+  if (loading) {
+    return <span>Loading ...</span>;
+  }
 
   return (
     <table>
@@ -29,7 +45,7 @@ function Table() {
       </thead>
 
       <tbody>
-        { data?.map((item) => (
+        { planetsFiltered?.map((item) => (
           <tr key={ item.name }>
             <td>{ item.name }</td>
             <td>{ item.rotation_period }</td>
