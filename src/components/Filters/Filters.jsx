@@ -12,6 +12,7 @@ function Filters() {
     columnsRemoved,
     removeFilter,
     removeAllFilters,
+    columns,
   } = useContext(MyContext);
 
   const [column, setColumn] = useState(composeColumns[0]);
@@ -92,6 +93,24 @@ function Filters() {
       >
         Filter
       </button>
+
+      <select data-testid="column-sort">
+        { columns.map((item) => (
+          <option value={ item } key={ item }>{ item }</option>
+        )) }
+      </select>
+
+      <label htmlFor="sortASC">
+        ascending
+        <input id="sortASC" type="radio" value="ASC" name="columnSort" />
+      </label>
+
+      <label htmlFor="sortDESC">
+        downward
+        <input id="sortDESC" type="radio" value="DESC" name="columnSort" />
+      </label>
+
+      <button type="button" data-testid="column-sort-button">order</button>
 
       { columnsRemoved.length && (
         <button

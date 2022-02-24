@@ -19,6 +19,7 @@ function MyProvider({ children }) {
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
   const [composeColumns, setcomposeColumns] = useState([...columns]);
   const [columnsRemoved, setcolumnsRemoved] = useState([]);
+  const [order, setOrdedr] = useState({ column: 'population', sort: 'ASC' });
 
   const getAPI = async () => {
     const dataAPI = await fetchAPI();
@@ -63,6 +64,7 @@ function MyProvider({ children }) {
     columnsRemoved,
     removeFilter,
     removeAllFilters,
+    columns,
   };
 
   return (
