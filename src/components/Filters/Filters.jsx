@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import MyContext from '../../context/MyContext';
 
 function Filters() {
@@ -7,15 +7,20 @@ function Filters() {
     setFilterByName,
     setFilterByNumericValues,
     filterByNumericValues,
+    composeColumns,
+    removeColumn,
   } = useContext(MyContext);
 
-  const [column, setColumn] = useState('population');
+  const [column, setColumn] = useState(composeColumns[0]);
   const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState('0');
-
   const handleChange = ({ target }) => {
     setFilterByName({ name: target.value });
   };
+
+  useEffect(() => {
+    setColumn(composeColumns[0]);
+  }, [composeColumns]);
 
   const setFilter = () => {
     const options = {
@@ -23,6 +28,8 @@ function Filters() {
       comparison,
       value,
     };
+
+    removeColumn(column);
 
     setFilterByNumericValues([...filterByNumericValues, options]);
   };
@@ -46,11 +53,9 @@ function Filters() {
         data-testid="column-filter"
         onChange={ ({ target }) => setColumn(target.value) }
       >
-        <option value="population">population</option>
-        <option value="orbital_period">orbital_period</option>
-        <option value="diameter">diameter</option>
-        <option value="rotation_period">rotation_period</option>
-        <option value="surface_water">surface_water</option>
+        { composeColumns.map((item) => (
+          <option key={ item } value={ item }>{ item }</option>
+        )) }
       </select>
 
       <select
@@ -76,6 +81,7 @@ function Filters() {
         type="button"
         data-testid="button-filter"
         onClick={ setFilter }
+        disabled={ !composeColumns.length }
       >
         Filter
       </button>
