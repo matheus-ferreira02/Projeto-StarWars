@@ -6,6 +6,7 @@ function Filters() {
     filterByName: { name },
     setFilterByName,
     setFilterByNumericValues,
+    filterByNumericValues,
   } = useContext(MyContext);
 
   const [column, setColumn] = useState('population');
@@ -23,7 +24,7 @@ function Filters() {
       value,
     };
 
-    setFilterByNumericValues([options]);
+    setFilterByNumericValues([...filterByNumericValues, options]);
   };
 
   return (
