@@ -27,7 +27,6 @@ function MyProvider({ children }) {
 
   const removeColumn = (columnToRemove) => {
     const newColumns = composeColumns.filter((column) => column !== columnToRemove);
-    console.log(columnToRemove);
     setcomposeColumns(newColumns);
   };
 
