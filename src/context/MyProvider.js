@@ -8,6 +8,9 @@ function MyProvider({ children }) {
   const [filterByName, setFilterByName] = useState({ name: '' });
   const [planetsFiltered, setPlanetsFiltered] = useState([]);
   const [loading, setLoading] = useState(true);
+  /* const [filterByNumericValues, setFilterByNumericValues] = useState([{
+    column, comparison, value,
+  }]); */
 
   const getAPI = async () => {
     const dataAPI = await fetchAPI();
