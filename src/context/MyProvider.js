@@ -18,6 +18,7 @@ function MyProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
   const [composeColumns, setcomposeColumns] = useState([...columns]);
+  const [columnsRemoved, setcolumnsRemoved] = useState([]);
 
   const getAPI = async () => {
     const dataAPI = await fetchAPI();
@@ -25,9 +26,26 @@ function MyProvider({ children }) {
     setLoading(false);
   };
 
+  const removeAllFilters = () => {
+    setFilterByNumericValues([]);
+    setcomposeColumns([...columns]);
+    setcolumnsRemoved([]);
+  };
+
   const removeColumn = (columnToRemove) => {
     const newColumns = composeColumns.filter((column) => column !== columnToRemove);
+    setcolumnsRemoved([...columnsRemoved, columnToRemove]);
     setcomposeColumns(newColumns);
+  };
+
+  const removeFilter = (value) => {
+    const newColumnsRemoved = columnsRemoved.filter((item) => item !== value);
+    const newFilters = filterByNumericValues
+      .filter((({ column }) => column !== value));
+
+    setcolumnsRemoved(newColumnsRemoved);
+    setcomposeColumns([...composeColumns, value]);
+    setFilterByNumericValues(newFilters);
   };
 
   const state = {
@@ -42,6 +60,9 @@ function MyProvider({ children }) {
     setFilterByNumericValues,
     composeColumns,
     removeColumn,
+    columnsRemoved,
+    removeFilter,
+    removeAllFilters,
   };
 
   return (

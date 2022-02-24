@@ -9,6 +9,9 @@ function Filters() {
     filterByNumericValues,
     composeColumns,
     removeColumn,
+    columnsRemoved,
+    removeFilter,
+    removeAllFilters,
   } = useContext(MyContext);
 
   const [column, setColumn] = useState(composeColumns[0]);
@@ -32,6 +35,10 @@ function Filters() {
     removeColumn(column);
 
     setFilterByNumericValues([...filterByNumericValues, options]);
+  };
+
+  const removeFilterContext = ({ target }) => {
+    removeFilter(target.name);
   };
 
   return (
@@ -85,6 +92,29 @@ function Filters() {
       >
         Filter
       </button>
+
+      { columnsRemoved.length && (
+        <button
+          type="button"
+          data-testid="button-remove-filters"
+          onClick={ removeAllFilters }
+        >
+          Remover todas filtragens
+        </button>
+      ) }
+
+      { columnsRemoved.map((item) => (
+        <div data-testid="filter" key={ `${item} removed` }>
+          <span>{ item }</span>
+          <button
+            name={ item }
+            type="button"
+            onClick={ removeFilterContext }
+          >
+            X
+          </button>
+        </div>
+      )) }
     </section>
   );
 }
