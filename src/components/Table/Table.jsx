@@ -11,6 +11,7 @@ function Table() {
     setPlanetsFiltered,
     planetsFiltered,
     loading,
+    filterByNumericValues,
   } = useContext(MyContext);
 
   useEffect(() => {
@@ -18,8 +19,9 @@ function Table() {
   }, []);
 
   useEffect(() => {
-    setPlanetsFiltered(filter(name, data));
-  }, [loading, name]);
+    const planets = filter(name, data, filterByNumericValues);
+    setPlanetsFiltered(planets);
+  }, [loading, name, filterByNumericValues]);
 
   if (loading) {
     return <span>Loading ...</span>;
