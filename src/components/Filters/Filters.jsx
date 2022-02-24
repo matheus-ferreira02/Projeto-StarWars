@@ -2,13 +2,28 @@ import React, { useContext, useState } from 'react';
 import MyContext from '../../context/MyContext';
 
 function Filters() {
-  const { filterByName: { name }, setFilterByName } = useContext(MyContext);
-  const [columnSelect, setColumnSelect] = useState('population');
-  const [comparisonSelect, setComparisonSelect] = useState('maior que');
-  const [valueInput, setValueInput] = useState('0');
+  const {
+    filterByName: { name },
+    setFilterByName,
+    setFilterByNumericValues,
+  } = useContext(MyContext);
+
+  const [column, setColumn] = useState('population');
+  const [comparison, setComparison] = useState('maior que');
+  const [value, setValue] = useState('0');
 
   const handleChange = ({ target }) => {
     setFilterByName({ name: target.value });
+  };
+
+  const setFilter = () => {
+    const options = {
+      column,
+      comparison,
+      value,
+    };
+
+    setFilterByNumericValues([options]);
   };
 
   return (
@@ -25,10 +40,10 @@ function Filters() {
       </label>
 
       <select
-        value={ columnSelect }
+        value={ column }
         name="column-filter"
         data-testid="column-filter"
-        onChange={ ({ target }) => setColumnSelect(target.value) }
+        onChange={ ({ target }) => setColumn(target.value) }
       >
         <option value="population">population</option>
         <option value="orbital_period">orbital_period</option>
@@ -38,10 +53,10 @@ function Filters() {
       </select>
 
       <select
-        value={ comparisonSelect }
+        value={ comparison }
         name="comparison-filter"
         data-testid="comparison-filter"
-        onChange={ ({ target }) => setComparisonSelect(target.value) }
+        onChange={ ({ target }) => setComparison(target.value) }
       >
         <option value="maior que">maior que</option>
         <option value="menor que">menor que</option>
@@ -52,11 +67,17 @@ function Filters() {
         name="value-filter"
         data-testid="value-filter"
         type="number"
-        value={ valueInput }
-        onChange={ ({ target }) => setValueInput(target.value) }
+        value={ value }
+        onChange={ ({ target }) => setValue(target.value) }
       />
 
-      <button type="button" data-testid="button-filter">Filter</button>
+      <button
+        type="button"
+        data-testid="button-filter"
+        onClick={ setFilter }
+      >
+        Filter
+      </button>
     </section>
   );
 }
