@@ -1,4 +1,4 @@
-function useFilter(name, data, filterByNumericValues) {
+function useFilter(name, data, filterByNumericValues, order) {
   let planetsFiltered = name.length !== 0
     ? data.filter((planet) => planet.name.includes(name))
     : data;
@@ -33,6 +33,13 @@ function useFilter(name, data, filterByNumericValues) {
     });
   }
 
+  /*  switch (order.column) {
+    case 'population':
+      break;
+    default:
+      break;
+  } */
+  console.log(order);
   return planetsFiltered;
 }
 

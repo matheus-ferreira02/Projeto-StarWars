@@ -13,11 +13,15 @@ function Filters() {
     removeFilter,
     removeAllFilters,
     columns,
+    setOrder,
   } = useContext(MyContext);
 
   const [column, setColumn] = useState(composeColumns[0]);
   const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState('0');
+  const [columnOrder, setColumnOrder] = useState(columns[0]);
+  const [radioOrder, setRadioOrder] = useState('ASC');
+
   const handleChange = ({ target }) => {
     setFilterByName({ name: target.value });
   };
@@ -40,6 +44,12 @@ function Filters() {
 
   const removeFilterContext = ({ target }) => {
     removeFilter(target.name);
+  };
+
+  const changeOrdering = () => {
+    console.log(columnOrder);
+    console.log(radioOrder);
+    setOrder({ column: columnOrder, sort: radioOrder });
   };
 
   return (
@@ -94,7 +104,11 @@ function Filters() {
         Filter
       </button>
 
-      <select data-testid="column-sort">
+      <select
+        data-testid="column-sort"
+        value={ columnOrder }
+        onChange={ ({ target }) => setColumnOrder(target.value) }
+      >
         { columns.map((item) => (
           <option value={ item } key={ item }>{ item }</option>
         )) }
@@ -102,15 +116,35 @@ function Filters() {
 
       <label htmlFor="sortASC">
         ascending
-        <input id="sortASC" type="radio" value="ASC" name="columnSort" />
+        <input
+          checked={ radioOrder === 'ASC' }
+          id="sortASC"
+          type="radio"
+          value="ASC"
+          name="columnSort"
+          onChange={ ({ target }) => setRadioOrder(target.value) }
+        />
       </label>
 
       <label htmlFor="sortDESC">
         downward
-        <input id="sortDESC" type="radio" value="DESC" name="columnSort" />
+        <input
+          checked={ radioOrder === 'DESC' }
+          id="sortDESC"
+          type="radio"
+          value="DESC"
+          name="columnSort"
+          onChange={ ({ target }) => setRadioOrder(target.value) }
+        />
       </label>
 
-      <button type="button" data-testid="column-sort-button">order</button>
+      <button
+        type="button"
+        data-testid="column-sort-button"
+        onClick={ changeOrdering }
+      >
+        order
+      </button>
 
       { columnsRemoved.length && (
         <button
