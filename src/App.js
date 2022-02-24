@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
+import MyProvider from './context/MyProvider';
 
 function App() {
   return (
-    <span>Hello, App!</span>
+    <MyProvider>
+      <span>Hello, App!</span>
+    </MyProvider>
   );
 }
 
