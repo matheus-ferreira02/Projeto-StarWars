@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import MyContext from '../../context/MyContext';
+import FIlterOrder from '../FilterOrder/FIlterOrder';
+import RemoveFilters from '../RemoveFilters/RemoveFilters';
 
 function Filters() {
   const {
@@ -9,18 +11,11 @@ function Filters() {
     filterByNumericValues,
     composeColumns,
     removeColumn,
-    columnsRemoved,
-    removeFilter,
-    removeAllFilters,
-    columns,
-    setOrder,
   } = useContext(MyContext);
 
   const [column, setColumn] = useState(composeColumns[0]);
   const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState('0');
-  const [columnOrder, setColumnOrder] = useState(columns[0]);
-  const [radioOrder, setRadioOrder] = useState('ASC');
 
   const handleChange = ({ target }) => {
     setFilterByName({ name: target.value });
@@ -40,14 +35,6 @@ function Filters() {
     removeColumn(column);
 
     setFilterByNumericValues([...filterByNumericValues, options]);
-  };
-
-  const removeFilterContext = ({ target }) => {
-    removeFilter(target.name);
-  };
-
-  const changeOrdering = () => {
-    setOrder({ column: columnOrder, sort: radioOrder });
   };
 
   return (
@@ -102,72 +89,8 @@ function Filters() {
         Filter
       </button>
 
-      <select
-        data-testid="column-sort"
-        value={ columnOrder }
-        onChange={ ({ target }) => setColumnOrder(target.value) }
-      >
-        { columns.map((item) => (
-          <option value={ item } key={ item }>{ item }</option>
-        )) }
-      </select>
-
-      <label htmlFor="sortASC">
-        ascending
-        <input
-          data-testid="column-sort-input-asc"
-          checked={ radioOrder === 'ASC' }
-          id="sortASC"
-          type="radio"
-          value="ASC"
-          name="columnSort"
-          onChange={ ({ target }) => setRadioOrder(target.value) }
-        />
-      </label>
-
-      <label htmlFor="sortDESC">
-        downward
-        <input
-          data-testid="column-sort-input-desc"
-          checked={ radioOrder === 'DESC' }
-          id="sortDESC"
-          type="radio"
-          value="DESC"
-          name="columnSort"
-          onChange={ ({ target }) => setRadioOrder(target.value) }
-        />
-      </label>
-
-      <button
-        type="button"
-        data-testid="column-sort-button"
-        onClick={ changeOrdering }
-      >
-        order
-      </button>
-
-      { columnsRemoved.length && (
-        <button
-          type="button"
-          data-testid="button-remove-filters"
-          onClick={ removeAllFilters }
-        >
-          Remover todas filtragens
-        </button>
-      ) }
-
-      { columnsRemoved.map((item) => (
-        <div data-testid="filter" key={ `${item} removed` }>
-          <span>{ item }</span>
-          <button
-            name={ item }
-            type="button"
-            onClick={ removeFilterContext }
-          >
-            X
-          </button>
-        </div>
-      )) }
+      <FIlterOrder />
+      <RemoveFilters />
     </section>
   );
 }

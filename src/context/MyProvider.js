@@ -49,6 +49,10 @@ function MyProvider({ children }) {
     setFilterByNumericValues(newFilters);
   };
 
+  const changeOrdering = (column, sort) => {
+    setOrder({ column, sort });
+  };
+
   const state = {
     data,
     filterByName,
@@ -67,6 +71,7 @@ function MyProvider({ children }) {
     columns,
     order,
     setOrder,
+    changeOrdering,
   };
 
   return (
