@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import MyContext from '../../context/MyContext';
 import Filter from '../../helpers/filters';
 import Filters from '../Filters/Filters';
+import Loading from '../Loading/Loading';
 
 function Table() {
   const {
@@ -25,7 +26,7 @@ function Table() {
   }, [loading, name, filterByNumericValues, order]);
 
   if (loading) {
-    return <span>Loading ...</span>;
+    return <Loading />;
   }
 
   return (
