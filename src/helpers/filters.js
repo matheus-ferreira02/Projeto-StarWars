@@ -33,14 +33,16 @@ function useFilter(name, data, filterByNumericValues, order) {
     });
   }
 
-  /*  switch (order.column) {
-    case 'population':
-      break;
-    default:
-      break;
-  } */
-  console.log(order);
-  return planetsFiltered;
+  switch (order.sort) {
+  case 'ASC':
+    planetsFiltered.sort((a, b) => a[order.column] - b[order.column]);
+    return planetsFiltered;
+  case 'DESC':
+    planetsFiltered.sort((a, b) => b[order.column] - a[order.column]);
+    return planetsFiltered;
+  default:
+    return planetsFiltered;
+  }
 }
 
 export default useFilter;

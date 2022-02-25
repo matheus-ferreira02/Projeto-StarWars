@@ -47,8 +47,6 @@ function Filters() {
   };
 
   const changeOrdering = () => {
-    console.log(columnOrder);
-    console.log(radioOrder);
     setOrder({ column: columnOrder, sort: radioOrder });
   };
 
@@ -117,6 +115,7 @@ function Filters() {
       <label htmlFor="sortASC">
         ascending
         <input
+          data-testid="column-sort-input-asc"
           checked={ radioOrder === 'ASC' }
           id="sortASC"
           type="radio"
@@ -129,6 +128,7 @@ function Filters() {
       <label htmlFor="sortDESC">
         downward
         <input
+          data-testid="column-sort-input-desc"
           checked={ radioOrder === 'DESC' }
           id="sortDESC"
           type="radio"
