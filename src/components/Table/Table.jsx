@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import MyContext from '../../context/MyContext';
-import filter from '../../helpers/filters';
+import Filter from '../../helpers/filters';
 import Filters from '../Filters/Filters';
 
 function Table() {
@@ -20,7 +20,7 @@ function Table() {
   }, []);
 
   useEffect(() => {
-    const planets = filter(name, data, filterByNumericValues, order);
+    const planets = Filter(name, data, filterByNumericValues, order);
     setPlanetsFiltered(planets);
   }, [loading, name, filterByNumericValues, order]);
 

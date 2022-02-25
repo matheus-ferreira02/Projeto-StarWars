@@ -19,12 +19,13 @@ function MyProvider({ children }) {
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
   const [composeColumns, setcomposeColumns] = useState([...columns]);
   const [columnsRemoved, setcolumnsRemoved] = useState([]);
-  const [order, setOrder] = useState({ column: 'population', sort: 'ASC' });
+  const [order, setOrder] = useState({ column: 'name', sort: 'NAME' });
 
   const getAPI = async () => {
     const dataAPI = await fetchAPI();
     setData(dataAPI);
     setLoading(false);
+    setPlanetsFiltered(dataAPI);
   };
 
   const removeAllFilters = () => {
