@@ -6,6 +6,8 @@
 .main-filter {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  height: 7vh;
 }
 
 .search-box {
@@ -39,4 +41,42 @@
   margin: auto;
   padding: 0 8px;
   transform: translateY(2px);
+}
+
+.dropdown {
+  width: 10rem;
+  position: relative;
+}
+
+.dropdown:hover .dropdown-list {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-select {
+  padding: 0.2rem 1rem;
+  border-radius: 5px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.dropdown-list {
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s linear, visibility 0.2s linear;
+  cursor: pointer;
+}
+
+.dropdown-list__item {
+  padding: 10px;
 }

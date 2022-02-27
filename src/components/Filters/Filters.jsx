@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { FiChevronDown } from 'react-icons/fi';
 import MyContext from '../../context/MyContext';
 import FIlterOrder from '../FilterOrder/FIlterOrder';
 import RemoveFilters from '../RemoveFilters/RemoveFilters';
@@ -54,16 +55,31 @@ function Filters() {
           />
         </div>
 
-        <select
-          value={ column }
-          name="column-filter"
+        <div
+          className="dropdown"
           data-testid="column-filter"
-          onChange={ ({ target }) => setColumn(target.value) }
         >
-          { composeColumns.map((item) => (
-            <option key={ item } value={ item }>{ item }</option>
-          )) }
-        </select>
+          <div className="dropdown-select">
+            <span className="select">{ column }</span>
+            <FiChevronDown />
+          </div>
+
+          <div className="dropdown-list">
+            { composeColumns.map((item) => (
+              <div
+                key={ item }
+                role="button"
+                tabIndex={ 0 }
+                value={ item }
+                className="dropdown-list__item"
+                onClick={ () => setColumn(item) }
+                onKeyDown={ () => setColumn(item) }
+              >
+                { item }
+              </div>
+            )) }
+          </div>
+        </div>
 
         <select
           value={ comparison }
