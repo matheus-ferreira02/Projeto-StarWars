@@ -4,14 +4,14 @@ import SelectInput from '../SelectInput/SelectInput';
 import './style.css';
 
 function FilterOrder() {
-  const { changeOrdering, order, columns } = useContext(MyContext);
+  const { changeOrdering, columns } = useContext(MyContext);
 
   const [columnOrder, setColumnOrder] = useState(columns[0]);
-  const [radioOrder, setRadioOrder] = useState(order.sort);
+  const [radioOrder, setRadioOrder] = useState('ASC');
 
   return (
     <section className="filterOrder">
-      <section className="select-container">
+      <section className="select-container-order">
         <span className="label-input">Column</span>
         <SelectInput
           selected={ columnOrder }
@@ -20,10 +20,10 @@ function FilterOrder() {
         />
       </section>
 
-      <label htmlFor="sortASC">
-        ascending
+      <section className="radio-btns">
         <input
           data-testid="column-sort-input-asc"
+          className="input-radio"
           checked={ radioOrder === 'ASC' }
           id="sortASC"
           type="radio"
@@ -31,12 +31,14 @@ function FilterOrder() {
           name="columnSort"
           onChange={ ({ target }) => setRadioOrder(target.value) }
         />
-      </label>
+        { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */ }
+        <label htmlFor="sortASC" className="label-radio">
+          Ascending
+        </label>
 
-      <label htmlFor="sortDESC">
-        downward
         <input
           data-testid="column-sort-input-desc"
+          className="input-radio"
           checked={ radioOrder === 'DESC' }
           id="sortDESC"
           type="radio"
@@ -44,7 +46,11 @@ function FilterOrder() {
           name="columnSort"
           onChange={ ({ target }) => setRadioOrder(target.value) }
         />
-      </label>
+        { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */ }
+        <label htmlFor="sortDESC" className="label-radio">
+          Downward
+        </label>
+      </section>
 
       <button
         type="button"
