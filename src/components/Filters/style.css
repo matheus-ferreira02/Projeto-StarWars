@@ -114,3 +114,7 @@
 .input-value:focus {
   outline: none;
 }
+
+.input-value::-webkit-inner-spin-button, input.input-value::-webkit-outer-spin-button {
+  appearance: none;
+}
