@@ -68,8 +68,7 @@ function Filters() {
             { composeColumns.map((item) => (
               <div
                 key={ item }
-                role="button"
-                tabIndex={ 0 }
+                aria-hidden="true"
                 value={ item }
                 className="dropdown-list__item"
                 onClick={ () => setColumn(item) }
