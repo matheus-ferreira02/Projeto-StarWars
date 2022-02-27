@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import MyContext from '../../context/MyContext';
+import SelectInput from '../SelectInput/SelectInput';
 import './style.css';
 
 function FilterOrder() {
@@ -10,15 +11,14 @@ function FilterOrder() {
 
   return (
     <section className="filterOrder">
-      <select
-        data-testid="column-sort"
-        value={ columnOrder }
-        onChange={ ({ target }) => setColumnOrder(target.value) }
-      >
-        { columns.map((item) => (
-          <option value={ item } key={ item }>{ item }</option>
-        )) }
-      </select>
+      <section className="select-container">
+        <span className="label-input">Column</span>
+        <SelectInput
+          selected={ columnOrder }
+          items={ columns }
+          setValue={ setColumnOrder }
+        />
+      </section>
 
       <label htmlFor="sortASC">
         ascending

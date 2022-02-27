@@ -13,9 +13,9 @@ function filterEqualTo(planets, column, value) {
 function filterByOptions(filterByNumericValues, planetsFiltered) {
   let planets = [...planetsFiltered];
   const filters = {
-    'maior que': filterLarger,
-    'menor que': filterSmaller,
-    'igual a': filterEqualTo,
+    'bigger then': filterLarger,
+    'less than': filterSmaller,
+    'equal to': filterEqualTo,
   };
 
   filterByNumericValues.forEach(({ comparison, column, value }) => {

@@ -17,7 +17,7 @@ function Filters() {
   } = useContext(MyContext);
 
   const [column, setColumn] = useState(composeColumns[0]);
-  const [comparison, setComparison] = useState('maior que');
+  const [comparison, setComparison] = useState('bigger then');
   const [value, setValue] = useState('0');
 
   const handleChange = ({ target }) => {
@@ -67,7 +67,7 @@ function Filters() {
           <span className="label-input">Comparison</span>
           <SelectInput
             selected={ comparison }
-            items={ ['maior que', 'menor que', 'igual a'] }
+            items={ ['bigger then', 'less than', 'equal to'] }
             setValue={ setComparison }
           />
         </section>
