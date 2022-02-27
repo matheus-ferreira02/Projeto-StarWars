@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { FiChevronDown } from 'react-icons/fi';
 import MyContext from '../../context/MyContext';
 import FIlterOrder from '../FilterOrder/FIlterOrder';
 import RemoveFilters from '../RemoveFilters/RemoveFilters';

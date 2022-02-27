@@ -36,6 +36,7 @@ function Table() {
       <table>
         <thead>
           <tr>
+            <th>N°</th>
             <th>Name</th>
             <th>Rotation Period</th>
             <th>Orbital Period</th>
@@ -53,8 +54,9 @@ function Table() {
         </thead>
 
         <tbody>
-          { planetsFiltered?.map((item) => (
+          { planetsFiltered?.map((item, index) => (
             <tr key={ item.name }>
+              <td>{ index }</td>
               <td data-testid="planet-name">{ item.name }</td>
               <td>{ item.rotation_period }</td>
               <td>{ item.orbital_period }</td>
