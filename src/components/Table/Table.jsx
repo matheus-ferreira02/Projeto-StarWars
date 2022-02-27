@@ -63,10 +63,10 @@ function Table() {
               <td>{ item.terrain }</td>
               <td>{ item.surface_water }</td>
               <td>{ item.population }</td>
-              <td>{ item.films }</td>
+              <td><a target="_blank" rel="noreferrer" href={ item.films }>LINK</a></td>
               <td>{ item.created }</td>
               <td>{ item.edited }</td>
-              <td>{ item.url }</td>
+              <td><a target="_blank" rel="noreferrer" href={ item.url }>LINK</a></td>
             </tr>
           )) }
         </tbody>
