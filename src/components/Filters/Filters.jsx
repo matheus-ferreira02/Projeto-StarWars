@@ -4,6 +4,7 @@ import { FiChevronDown } from 'react-icons/fi';
 import MyContext from '../../context/MyContext';
 import FIlterOrder from '../FilterOrder/FIlterOrder';
 import RemoveFilters from '../RemoveFilters/RemoveFilters';
+import SelectInput from '../SelectInput/SelectInput';
 import './style.css';
 
 function Filters() {
@@ -54,33 +55,25 @@ function Filters() {
             placeholder="Search Name"
           />
         </div>
+        <section className="select-container">
+          <span className="label-input">Column</span>
+          <SelectInput
+            selected={ column }
+            items={ composeColumns }
+            setValue={ setColumn }
+          />
+        </section>
 
-        <div
-          className="dropdown"
-          data-testid="column-filter"
-        >
-          <div className="dropdown-select">
-            <span className="select">{ column }</span>
-            <FiChevronDown />
-          </div>
+        <section className="select-container">
+          <span className="label-input">Comparison</span>
+          <SelectInput
+            selected={ comparison }
+            items={ ['maior que', 'menor que', 'igual a'] }
+            setValue={ setComparison }
+          />
+        </section>
 
-          <div className="dropdown-list">
-            { composeColumns.map((item) => (
-              <div
-                key={ item }
-                aria-hidden="true"
-                value={ item }
-                className="dropdown-list__item"
-                onClick={ () => setColumn(item) }
-                onKeyDown={ () => setColumn(item) }
-              >
-                { item }
-              </div>
-            )) }
-          </div>
-        </div>
-
-        <select
+        {/* <select
           value={ comparison }
           name="comparison-filter"
           data-testid="comparison-filter"
@@ -89,7 +82,7 @@ function Filters() {
           <option value="maior que">maior que</option>
           <option value="menor que">menor que</option>
           <option value="igual a">igual a</option>
-        </select>
+        </select> */}
 
         <input
           name="value-filter"
