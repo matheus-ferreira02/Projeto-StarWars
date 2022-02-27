@@ -7,3 +7,36 @@
   display: flex;
   justify-content: space-around;
 }
+
+.search-box {
+  background-color: #434343;
+  border-radius: 15px;
+  display: flex;
+  height: 3.5vh;
+  position: relative;
+}
+
+.input-search {
+  background-color: #434343;
+  border: none;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  color: white;
+  padding: 5px;
+}
+
+.input-search:focus {
+  outline: none;
+}
+
+.input-search::placeholder {
+  font-weight: 600;
+}
+
+.searchIcon {
+  align-self: center;
+  color: yellow;
+  margin: auto;
+  padding: 0 8px;
+  transform: translateY(2px);
+}

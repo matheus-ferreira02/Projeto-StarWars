@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
 import MyContext from '../../context/MyContext';
 import FIlterOrder from '../FilterOrder/FIlterOrder';
 import RemoveFilters from '../RemoveFilters/RemoveFilters';
@@ -41,16 +42,17 @@ function Filters() {
   return (
     <section className="filters">
       <section className="main-filter">
-        <label htmlFor="inputName">
-          Name:
+        <div htmlFor="inputName" className="search-box">
+          <div className="searchIcon"><AiOutlineSearch /></div>
           <input
+            className="input-search"
             data-testid="name-filter"
             value={ name }
             onChange={ handleChange }
             type="text"
-            placeholder="type the name"
+            placeholder="Search Name"
           />
-        </label>
+        </div>
 
         <select
           value={ column }
