@@ -72,24 +72,17 @@ function Filters() {
           />
         </section>
 
-        {/* <select
-          value={ comparison }
-          name="comparison-filter"
-          data-testid="comparison-filter"
-          onChange={ ({ target }) => setComparison(target.value) }
-        >
-          <option value="maior que">maior que</option>
-          <option value="menor que">menor que</option>
-          <option value="igual a">igual a</option>
-        </select> */}
-
-        <input
-          name="value-filter"
-          data-testid="value-filter"
-          type="number"
-          value={ value }
-          onChange={ ({ target }) => setValue(target.value) }
-        />
+        <section className="select-container">
+          <span className="label-input">Value</span>
+          <input
+            className="input-value"
+            name="value-filter"
+            data-testid="value-filter"
+            type="number"
+            value={ value }
+            onChange={ ({ target }) => setValue(target.value) }
+          />
+        </section>
 
         <button
           type="button"

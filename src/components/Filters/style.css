@@ -25,6 +25,7 @@
   border-top-right-radius: 15px;
   color: white;
   padding: 5px;
+  width: 12rem;
 }
 
 .input-search:focus {
@@ -96,4 +97,19 @@
 
 .dropdown-list__item:hover {
   background-color: #4A4A4A;
+}
+
+.input-value {
+  width: 12rem;
+  border: none;
+  height: 3.5vh;
+  border-radius: 4px;
+  color: white;
+  background-color: #434343;
+  padding: 0 10px;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.315);
+}
+
+.input-value:focus {
+  outline: none;
 }
