@@ -3,6 +3,7 @@ import MyContext from '../../context/MyContext';
 import Filter from '../../helpers/filters';
 import Filters from '../Filters/Filters';
 import Loading from '../Loading/Loading';
+import './style.css';
 
 function Table() {
   const {
@@ -30,7 +31,7 @@ function Table() {
   }
 
   return (
-    <>
+    <main className="main-container">
       <Filters />
       <table>
         <thead>
@@ -71,7 +72,7 @@ function Table() {
           )) }
         </tbody>
       </table>
-    </>
+    </main>
   );
 }
 
