@@ -55,18 +55,18 @@
 }
 
 .label-input {
-  position: absolute;
-  transform: translateY(-15px);
-  color: #9A9A9A;
+  color: #9a9a9a;
   font-size: 0.6em;
   font-weight: 700;
+  position: absolute;
   text-transform: uppercase;
+  transform: translateY(-15px);
 }
 
 .dropdown {
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.315);
   position: relative;
   width: 12rem;
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.315);
 }
 
 .dropdown-list {
@@ -95,20 +95,20 @@
 }
 
 .dropdown-list__item {
-  padding: 10px;
   color: white;
+  padding: 10px;
 }
 
 .dropdown-list__item:hover {
-  background-color: #4A4A4A;
+  background-color: #4a4a4a;
 }
 
 .input-value {
-  width: 12rem;
   border: none;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.315);
   color: white;
   padding: 0 10px;
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.315);
+  width: 12rem;
 }
 
 .input-value:focus {
