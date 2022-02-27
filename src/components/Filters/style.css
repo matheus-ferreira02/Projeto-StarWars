@@ -1,7 +1,6 @@
 .filters {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
 }
 
 .main-filter, .search-box, .dropdown-select {
@@ -11,8 +10,8 @@
 .main-filter {
   align-items: center;
   flex-wrap: wrap;
-  margin: 20px 0;
   justify-content: space-around;
+  margin: 20px 0;
 }
 
 .search-box, .dropdown-select, .input-value {
@@ -29,8 +28,8 @@
 
 .search-box {
   border-radius: 15px;
-  position: relative;
   margin: 10px 0;
+  position: relative;
   width: 100%;
 }
 
@@ -144,6 +143,6 @@
 }
 
 .select-container {
-  width: 100%;
   margin: 10px 0;
+  width: 100%;
 }
