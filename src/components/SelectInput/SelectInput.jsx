@@ -3,9 +3,15 @@ import PropTypes from 'prop-types';
 import { FiChevronDown } from 'react-icons/fi';
 
 function SelectInput({ selected, items, setValue }) {
+  const DEFAULT_CLASS = 'dropdown-select';
+  const DESABLED_SELECT = 'disabled-select';
+
   return (
     <section className="dropdown">
-      <div className="dropdown-select">
+      <div
+        className={ !items.length
+          ? `${DESABLED_SELECT} ${DEFAULT_CLASS}` : DEFAULT_CLASS }
+      >
         <span className="select">{ selected }</span>
         <FiChevronDown />
       </div>

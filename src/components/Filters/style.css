@@ -91,6 +91,7 @@
   cursor: pointer;
   justify-content: space-between;
   padding: 0.2rem 1rem;
+  transition: all 0.5s ease;
   width: 100%;
 }
 
@@ -101,6 +102,12 @@
 
 .dropdown-list__item:hover {
   background-color: #4a4a4a;
+}
+
+.disabled-select {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transition: all 0.5s ease;
 }
 
 .input-value {
@@ -127,4 +134,9 @@
   font-weight: 600;
   height: 3.5vh;
   padding: 0 15px;
+}
+
+.btn-filter:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
