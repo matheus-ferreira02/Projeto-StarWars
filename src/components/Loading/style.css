@@ -1,11 +1,25 @@
 .loading-container {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
-} 
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
 
-.loading-icon {
-  width: 150px;
+.loading {
+  align-self: center;
+  animation: rotate ease 1s infinite;
+  border: 5px solid black;
+  border-radius: 50%;
+  border-top-color: yellow;
+  display: grid;
+  height: 100px;
+  width: 100px;
+}
+
+@keyframes rotate {
+
+  to {
+    transform: rotate(360deg);
+  }
 }
