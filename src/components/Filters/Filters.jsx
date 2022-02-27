@@ -85,6 +85,7 @@ function Filters() {
         </section>
 
         <button
+          className="btn-filter"
           type="button"
           data-testid="button-filter"
           onClick={ setFilter }
