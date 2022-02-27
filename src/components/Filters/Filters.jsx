@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import MyContext from '../../context/MyContext';
-import FIlterOrder from '../FilterOrder/FIlterOrder';
+import FilterOrder from '../FilterOrder/FilterOrder';
 import RemoveFilters from '../RemoveFilters/RemoveFilters';
 import SelectInput from '../SelectInput/SelectInput';
 import './style.css';
@@ -95,7 +95,7 @@ function Filters() {
         </button>
       </section>
 
-      <FIlterOrder />
+      <FilterOrder />
       <RemoveFilters />
     </section>
   );

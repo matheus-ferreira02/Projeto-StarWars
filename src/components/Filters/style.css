@@ -1,19 +1,22 @@
 .filters {
+  display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
-.filters, .main-filter, .search-box, .dropdown-select {
+.main-filter, .search-box, .dropdown-select {
   display: flex;
 }
 
 .main-filter {
   align-items: center;
-  height: 7vh;
+  flex-wrap: wrap;
+  margin: 20px 0;
   justify-content: space-around;
 }
 
 .search-box, .dropdown-select, .input-value {
-  height: 3.5vh;
+  height: 5vh;
 }
 
 .search-box, .input-search, .dropdown-list, .dropdown-select, .input-value {
@@ -27,14 +30,13 @@
 .search-box {
   border-radius: 15px;
   position: relative;
+  margin: 10px 0;
+  width: 100%;
 }
 
 .input-search {
   border: none;
-  border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
   color: white;
-  padding: 5px;
   width: 12rem;
 }
 
@@ -49,8 +51,7 @@
 .searchIcon {
   align-self: center;
   color: yellow;
-  margin: auto;
-  padding: 0 8px;
+  padding: 0 15px;
   transform: translateY(2px);
 }
 
@@ -66,7 +67,7 @@
 .dropdown {
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.315);
   position: relative;
-  width: 12rem;
+  width: 100%;
 }
 
 .dropdown-list {
@@ -78,6 +79,7 @@
   top: 110%;
   transition: opacity 0.2s linear , visibility 0.2s linear;
   visibility: hidden;
+  z-index: 1;
 }
 
 .dropdown:hover .dropdown-list {
@@ -115,7 +117,7 @@
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.315);
   color: white;
   padding: 0 10px;
-  width: 12rem;
+  width: 100%;
 }
 
 .input-value::-webkit-inner-spin-button, .input-value::-webkit-outer-spin-button {
@@ -139,4 +141,9 @@
 .btn-filter:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+.select-container {
+  width: 100%;
+  margin: 10px 0;
 }

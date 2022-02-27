@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import MyContext from '../../context/MyContext';
+import './style.css';
 
-function FIlterOrder() {
+function FilterOrder() {
   const { changeOrdering, order, columns } = useContext(MyContext);
 
   const [columnOrder, setColumnOrder] = useState(columns[0]);
@@ -56,4 +57,4 @@ function FIlterOrder() {
   );
 }
 
-export default FIlterOrder;
+export default FilterOrder;

@@ -1,5 +1,5 @@
 const fetchAPI = async () => {
-  const url = 'https://swapi-trybe.herokuapp.com/api/planets/';
+  const url = 'https://star-api-wars.herokuapp.com/';
   try {
     const { results } = await (await fetch(url)).json();
     return results;

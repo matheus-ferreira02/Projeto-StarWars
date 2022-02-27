@@ -19,11 +19,13 @@ function Table() {
 
   useEffect(() => {
     getAPI();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     const planets = Filter(name, data, filterByNumericValues, order);
     setPlanetsFiltered(planets);
+    // eslint-disable-next-line
   }, [loading, name, filterByNumericValues, order]);
 
   if (loading) {
@@ -33,10 +35,9 @@ function Table() {
   return (
     <main className="main-container">
       <Filters />
-      <table>
+      <table className="table">
         <thead>
           <tr>
-            <th>N°</th>
             <th>Name</th>
             <th>Rotation Period</th>
             <th>Orbital Period</th>
@@ -54,22 +55,39 @@ function Table() {
         </thead>
 
         <tbody>
-          { planetsFiltered?.map((item, index) => (
+          { planetsFiltered?.map((item) => (
             <tr key={ item.name }>
-              <td>{ index }</td>
               <td data-testid="planet-name">{ item.name }</td>
-              <td>{ item.rotation_period }</td>
-              <td>{ item.orbital_period }</td>
-              <td>{ item.diameter }</td>
-              <td>{ item.climate }</td>
-              <td>{ item.gravity }</td>
-              <td>{ item.terrain }</td>
-              <td>{ item.surface_water }</td>
-              <td>{ item.population }</td>
-              <td><a target="_blank" rel="noreferrer" href={ item.films }>LINK</a></td>
-              <td>{ item.created }</td>
-              <td>{ item.edited }</td>
-              <td><a target="_blank" rel="noreferrer" href={ item.url }>LINK</a></td>
+              <td data-title="Rotation Period">{ item.rotation_period }</td>
+              <td data-title="Orbital Period">{ item.orbital_period }</td>
+              <td data-title="Diameter">{ item.diameter }</td>
+              <td data-title="Climate">{ item.climate }</td>
+              <td data-title="Gravity">{ item.gravity }</td>
+              <td data-title="Terrain">{ item.terrain }</td>
+              <td data-title="Surface Water">{ item.surface_water }</td>
+              <td data-title="Population">{ item.population }</td>
+              <td data-title="Films">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={ item.films }
+                >
+                  LINK
+                </a>
+
+              </td>
+              <td data-title="Created">{ item.created }</td>
+              <td data-title="Edited">{ item.edited }</td>
+              <td data-title="URL">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={ item.url }
+                >
+                  LINK
+                </a>
+
+              </td>
             </tr>
           )) }
         </tbody>

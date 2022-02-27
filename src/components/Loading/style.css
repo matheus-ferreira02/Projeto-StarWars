@@ -7,7 +7,6 @@
 }
 
 .loading {
-  align-self: center;
   animation: rotate ease 1s infinite;
   border: 5px solid black;
   border-radius: 50%;

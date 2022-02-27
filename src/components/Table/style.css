@@ -4,4 +4,34 @@
   margin: 0 auto;
   padding: 10px;
   width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  .table thead {
+    display: none;
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .table tr {
+    display: block;
+  }
+
+  .table td:first-of-type {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    display: block;
+  }
+
+  .table td:not(:first-of-type):before {
+    content: attr(data-title);
+    display: block;
+    font-weight: bold;
+  }
 }
