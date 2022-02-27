@@ -53,11 +53,12 @@ function FilterOrder() {
       </section>
 
       <button
+        className="order-btn"
         type="button"
         data-testid="column-sort-button"
         onClick={ () => changeOrdering(columnOrder, radioOrder) }
       >
-        order
+        Order
       </button>
     </section>
   );

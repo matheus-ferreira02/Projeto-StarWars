@@ -14,7 +14,7 @@ function RemoveFilters() {
 
   return (
     <section className="chosenFilters">
-      { columnsRemoved.length && (
+      { columnsRemoved.length > 0 && (
         <button
           type="button"
           data-testid="button-remove-filters"
