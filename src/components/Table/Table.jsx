@@ -54,7 +54,7 @@ function Table() {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className="table-body">
           { planetsFiltered?.map((item) => (
             <tr key={ item.name }>
               <td data-testid="planet-name">{ item.name }</td>

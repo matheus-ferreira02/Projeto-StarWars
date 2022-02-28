@@ -35,6 +35,7 @@
 }
 
 .input-radio:checked + label:before {
+  background-color: black;
   border: 6px solid #efea4c;
   height: calc(0.2vh + 7px);
   min-width: calc(1% + 7px);
