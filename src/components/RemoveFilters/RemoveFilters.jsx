@@ -10,7 +10,7 @@ function RemoveFilters() {
   } = useContext(MyContext);
 
   const removeFilterContext = ({ target }) => {
-    removeFilter(target.name);
+    removeFilter(target.id);
   };
 
   return (
@@ -26,18 +26,25 @@ function RemoveFilters() {
         </button>
       ) }
 
-      { columnsRemoved.map((item) => (
-        <div data-testid="filter" key={ `${item} removed` }>
-          <span>{ item }</span>
-          <button
-            name={ item }
-            type="button"
-            onClick={ removeFilterContext }
+      <section className="filters-tag">
+        { columnsRemoved.map((item) => (
+          <div
+            className="tag"
+            data-testid="filter"
+            key={ `${item} removed` }
           >
-            X
-          </button>
-        </div>
-      )) }
+            <span>{ item }</span>
+            <button
+              className="btn-remove"
+              id={ item }
+              type="button"
+              onClick={ removeFilterContext }
+            >
+              X
+            </button>
+          </div>
+        )) }
+      </section>
     </section>
   );
 }
