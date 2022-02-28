@@ -25,9 +25,9 @@
   border: 2px solid #efea4c;
   border-radius: 50%;
   content: '';
-  height: 15px;
+  height: calc(0.2vh + 15px);
   margin-right: 12px;
-  width: 15px;
+  min-width: calc(1% + 15px);
 }
 
 .input-radio:checked + label {
@@ -36,8 +36,8 @@
 
 .input-radio:checked + label:before {
   border: 6px solid #efea4c;
-  height: 7px;
-  width: 7px;
+  height: calc(0.2vh + 7px);
+  min-width: calc(1% + 7px);
 }
 
 .order-btn {
