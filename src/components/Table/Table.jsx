@@ -56,7 +56,7 @@ function Table() {
 
         <tbody className="table-body">
           { planetsFiltered?.map((item) => (
-            <tr key={ item.name }>
+            <tr className="line-table" key={ item.name }>
               <td data-testid="planet-name">{ item.name }</td>
               <td data-title="Rotation Period">{ item.rotation_period }</td>
               <td data-title="Orbital Period">{ item.orbital_period }</td>
