@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import MyContext from '../../context/MyContext';
+import './style.css';
 
 function RemoveFilters() {
   const {
@@ -16,11 +17,12 @@ function RemoveFilters() {
     <section className="chosenFilters">
       { columnsRemoved.length > 0 && (
         <button
+          className="remove-filters-btn"
           type="button"
           data-testid="button-remove-filters"
           onClick={ removeAllFilters }
         >
-          Remover todas filtragens
+          Remove all filters
         </button>
       ) }
 
