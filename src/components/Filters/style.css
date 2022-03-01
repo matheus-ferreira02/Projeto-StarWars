@@ -134,6 +134,7 @@
   font-weight: 600;
   height: 5vh;
   padding: 0 15px;
+  margin: 10px;
 }
 
 .btn:disabled {
@@ -159,8 +160,21 @@
   .dropdown, .input-value {
     width: 100%;
   }
+}
+
+@media only screen and ( min-width : 992px ) {
+
+  .dropdown, .input-value {
+    width: 100%;
+  }
 
   .btn {
-    margin: 10px;
+    margin: 20px;
+  }
+}
+
+@media ( min-width : 1200px ) {
+  .btn {
+    margin: 40px;
   }
 }

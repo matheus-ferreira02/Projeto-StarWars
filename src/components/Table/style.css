@@ -73,3 +73,17 @@
     margin-bottom: calc(5% + 10px);
   }
 }
+
+@media ( min-width : 1300px ) {
+  .table thead {
+    background-color: #363636;
+    color: #7b7b7b;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    text-align: left;
+  }
+
+  .table thead th {
+    padding: 0 5px;
+  }
+}
