@@ -133,8 +133,8 @@
   cursor: pointer;
   font-weight: 600;
   height: 5vh;
-  padding: 0 15px;
   margin: 10px;
+  padding: 0 15px;
 }
 
 .btn:disabled {
@@ -174,12 +174,14 @@
 }
 
 @media ( min-width : 1200px ) {
+
   .btn {
     margin: 40px;
   }
 }
 
 @media only screen and ( min-width : 1600px ) {
+
   .input-value, .dropdown, .search-box {
     width: 30%;
   }
@@ -198,6 +200,7 @@
 }
 
 @media only screen and ( min-width : 1920px ) {
+
   .input-value, .dropdown, .search-box {
     width: 20%;
   }
