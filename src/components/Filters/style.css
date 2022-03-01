@@ -8,10 +8,10 @@
 }
 
 .main-filter {
-  align-items: center;
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 20px 0;
+  width: 100%;
 }
 
 .search-box, .dropdown-select, .input-value {
@@ -29,7 +29,6 @@
 .search-box {
   border-radius: 15px;
   margin: 10px 0;
-  position: relative;
   width: 100%;
 }
 
@@ -148,7 +147,20 @@
 }
 
 @media only screen and ( min-width : 768px ) {
-  .input-value, .dropdown, .search-box  {
-    width:45%;
+
+  .input-value, .dropdown, .search-box {
+    width: 45%;
+  }
+
+  .select-container {
+    width: 45%;
+  }
+
+  .dropdown, .input-value {
+    width: 100%;
+  }
+
+  .btn {
+    margin: 10px;
   }
 }

@@ -24,9 +24,9 @@
 
 .table-body a {
   all: unset;
-  text-decoration: underline;
-  cursor: pointer;
   color: #efea4c;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 @media ( max-width : 1300px ) {
