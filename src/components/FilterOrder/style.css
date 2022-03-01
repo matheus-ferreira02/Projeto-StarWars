@@ -53,3 +53,16 @@
   padding: 0 15px;
   transform: translateX(-50%);
 }
+
+@media only screen and ( min-width : 1600px ) {
+  .label-radio:before {
+    height: calc(0.2vh + 20px);
+    margin-right: 12px;
+    min-width: calc(1% + 20px);
+  }
+
+  .input-radio:checked + label:before {
+    height: calc(0.2vh + 12px);
+    min-width: calc(1% + 12px);
+  }
+}

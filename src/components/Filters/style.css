@@ -178,3 +178,39 @@
     margin: 40px;
   }
 }
+
+@media only screen and ( min-width : 1600px ) {
+  .input-value, .dropdown, .search-box {
+    width: 30%;
+  }
+
+  .select-container {
+    width: 30%;
+  }
+
+  .dropdown, .input-value {
+    width: 100%;
+  }
+
+  .btn {
+    margin: 10px;
+  }
+}
+
+@media only screen and ( min-width : 1920px ) {
+  .input-value, .dropdown, .search-box {
+    width: 20%;
+  }
+
+  .select-container {
+    width: 20%;
+  }
+
+  .dropdown, .input-value {
+    width: 100%;
+  }
+
+  .btn {
+    margin: 8px 0;
+  }
+}
