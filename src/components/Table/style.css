@@ -86,5 +86,7 @@
 
   .table thead th {
     padding: 0 5px;
+    height: 6vh;
+    max-width: 140px;
   }
 }
